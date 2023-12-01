@@ -41,16 +41,7 @@ func main() {
 
 	// 初始化OpenAI客户端
 	config := openai.DefaultConfig(os.Getenv("OPENAI_KEY"))
-	// proxyUrl, err := url.Parse(os.Getenv("HTTPS_PROXY"))
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// transport := &http.Transport{
-	// 	Proxy: http.ProxyURL(proxyUrl),
-	// }
-	// config.HTTPClient = &http.Client{
-	// 	Transport: transport,
-	// }
+	config.BaseURL = os.Getenv("OPENAI_URL")
 
 	c := openai.NewClientWithConfig(config)
 
